@@ -30,6 +30,15 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         title = "Choco Shop"
         navigationController?.navigationBar.isTranslucent = false
         
+        let rightButtonItem = UIBarButtonItem()
+        rightButtonItem.title = "Cart"
+        rightButtonItem.setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)
+            ], for: .normal)
+        rightButtonItem.action = #selector(openCartViewController)
+        rightButtonItem.target = self
+        navigationItem.rightBarButtonItem = rightButtonItem
+        
         generateView()
         
         chochoTableView.delegate = self
@@ -43,6 +52,11 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
             return ASWrapperLayoutSpec(layoutElement: self.chochoTableView)
         }
         
+    }
+    
+    @objc func openCartViewController() {
+        let cartViewController = CartViewController()
+        navigationController?.pushViewController(cartViewController, animated: true)
     }
 
 }
