@@ -13,6 +13,8 @@ class CartViewController: ASViewController<ASDisplayNode> {
     private let checkoutButtonNode = ASButtonNode()
     private let resetButtonNode = ASButtonNode()
     
+    private let cart = ShoppingCart.sharedCart
+    
     init() {
         let node = ASDisplayNode()
         node.automaticallyManagesSubnodes = true
@@ -29,6 +31,8 @@ class CartViewController: ASViewController<ASDisplayNode> {
         view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
         title = "Choco Cart"
+        
+        print(cart.chocolates.count)
         
         generateView()
     }
@@ -53,6 +57,7 @@ class CartViewController: ASViewController<ASDisplayNode> {
         resetButtonNode.contentEdgeInsets = UIEdgeInsets(top: 12, left: 32, bottom: 12, right: 32)
         resetButtonNode.cornerRadius = 4
         resetButtonNode.style.flexGrow = 1
+        resetButtonNode.addTarget(self, action: #selector(resetShoppingCart), forControlEvents: .touchUpInside)
         
         node.layoutSpecBlock = { (_, constrainedSize) -> ASLayoutSpec in
             self.checkoutButtonNode.style.width = ASDimensionMake((constrainedSize.max.width - 48) / 2)
@@ -67,6 +72,10 @@ class CartViewController: ASViewController<ASDisplayNode> {
             
             return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), child: cartNodeVerticalWrapper)
         }
+    }
+    
+    @objc func resetShoppingCart() {
+        cart.chocolates = []
     }
 
 }

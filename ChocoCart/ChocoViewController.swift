@@ -11,11 +11,23 @@ import AsyncDisplayKit
 class ChocoViewController: ASViewController<ASDisplayNode> {
     
     private let chochoTableView = ASTableNode()
+    private var rightButtonItem = UIBarButtonItem()
+    
+    private var chocoList = [Chocolate]()
+    private let cart = ShoppingCart.sharedCart
     
     init() {
         let node = ASDisplayNode()
         node.backgroundColor = .white
         node.automaticallyManagesSubnodes = true
+
+        chocoList.append(Chocolate(name: "Belgian Choco - Almond", country: "Belgium", price: "100.000"))
+        chocoList.append(Chocolate(name: "Belgian Choco - Dark", country: "Belgium", price: "130.000"))
+        chocoList.append(Chocolate(name: "Belgian Choco - Milk", country: "Belgium", price: "130.000"))
+        chocoList.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
+        
+        cart.chocolates.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
+        
         super.init(node: node)
     }
     
@@ -30,8 +42,6 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         title = "Choco Shop"
         navigationController?.navigationBar.isTranslucent = false
         
-        let rightButtonItem = UIBarButtonItem()
-        rightButtonItem.title = "Cart"
         rightButtonItem.setTitleTextAttributes([
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)
             ], for: .normal)
@@ -40,9 +50,14 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         navigationItem.rightBarButtonItem = rightButtonItem
         
         generateView()
+        updateCartCount()
         
         chochoTableView.delegate = self
         chochoTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateCartCount()
     }
 
     func generateView() {
@@ -52,6 +67,15 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
             return ASWrapperLayoutSpec(layoutElement: self.chochoTableView)
         }
         
+    }
+    
+    func updateCartCount() {
+        rightButtonItem.title = "Cart (\(cart.chocolates.count))"
+    }
+    
+    func addToCart(chocolate: Chocolate) {
+        cart.chocolates.append(chocolate)
+        updateCartCount()
     }
     
     @objc func openCartViewController() {
@@ -67,12 +91,14 @@ extension ChocoViewController: ASTableDelegate, ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.chocoList.count
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+        let chocolate = chocoList[indexPath.row]
         return {
             let cell = ChocoViewCell()
+            cell.setChocolate(choco: chocolate)
             return cell
         }
     }
@@ -82,6 +108,8 @@ extension ChocoViewController: ASTableDelegate, ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        let chocolate = chocoList[indexPath.row]
+        addToCart(chocolate: chocolate)
         tableNode.deselectRow(at: indexPath, animated: true)
     }
 }

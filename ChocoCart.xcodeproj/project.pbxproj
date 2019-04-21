@@ -15,6 +15,8 @@
 		93DA6FD1226B8A6B00B395B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DA6FCF226B8A6B00B395B7 /* LaunchScreen.storyboard */; };
 		93DA6FD9226B90F600B395B7 /* ChocoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6FD8226B90F600B395B7 /* ChocoViewCell.swift */; };
 		93DA6FDB226B991E00B395B7 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6FDA226B991E00B395B7 /* CartViewController.swift */; };
+		93DA6FDE226CC9F100B395B7 /* Chocolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6FDD226CC9F100B395B7 /* Chocolate.swift */; };
+		93DA6FE0226CD18D00B395B7 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6FDF226CD18D00B395B7 /* ShoppingCart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		93DA6FD2226B8A6B00B395B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93DA6FD8226B90F600B395B7 /* ChocoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocoViewCell.swift; sourceTree = "<group>"; };
 		93DA6FDA226B991E00B395B7 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		93DA6FDD226CC9F100B395B7 /* Chocolate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chocolate.swift; sourceTree = "<group>"; };
+		93DA6FDF226CD18D00B395B7 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		C3442E413E1AFEEDAE748BC3 /* Pods-ChocoCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoCart.debug.xcconfig"; path = "Target Support Files/Pods-ChocoCart/Pods-ChocoCart.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB869B786BBBDD6CF0D38CB /* Pods-ChocoCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoCart.release.xcconfig"; path = "Target Support Files/Pods-ChocoCart/Pods-ChocoCart.release.xcconfig"; sourceTree = "<group>"; };
 		DA8AFC5B19EEC1E22656D119 /* Pods_ChocoCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChocoCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +77,7 @@
 		93DA6FC5226B8A6A00B395B7 /* ChocoCart */ = {
 			isa = PBXGroup;
 			children = (
+				93DA6FDC226CC9D100B395B7 /* Models */,
 				93DA6FC6226B8A6A00B395B7 /* AppDelegate.swift */,
 				93DA6FC8226B8A6A00B395B7 /* ChocoViewController.swift */,
 				93DA6FD8226B90F600B395B7 /* ChocoViewCell.swift */,
@@ -83,6 +88,15 @@
 				93DA6FD2226B8A6B00B395B7 /* Info.plist */,
 			);
 			path = ChocoCart;
+			sourceTree = "<group>";
+		};
+		93DA6FDC226CC9D100B395B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93DA6FDD226CC9F100B395B7 /* Chocolate.swift */,
+				93DA6FDF226CD18D00B395B7 /* ShoppingCart.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DBEDD54EC776C095F3789F4B /* Pods */ = {
@@ -221,9 +235,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DA6FDB226B991E00B395B7 /* CartViewController.swift in Sources */,
+				93DA6FE0226CD18D00B395B7 /* ShoppingCart.swift in Sources */,
 				93DA6FC9226B8A6A00B395B7 /* ChocoViewController.swift in Sources */,
 				93DA6FD9226B90F600B395B7 /* ChocoViewCell.swift in Sources */,
 				93DA6FC7226B8A6A00B395B7 /* AppDelegate.swift in Sources */,
+				93DA6FDE226CC9F100B395B7 /* Chocolate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

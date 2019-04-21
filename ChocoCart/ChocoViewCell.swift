@@ -17,27 +17,8 @@ class ChocoViewCell: ASCellNode {
     
     override init() {
         super.init()
-        
         self.automaticallyManagesSubnodes = true
-        
-        chocoNameTextNode.attributedText = NSAttributedString(string: "Almond Choco", attributes: [
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
-            NSAttributedString.Key.foregroundColor: UIColor.black
-            ])
-        
-        chocoPriceTextNode.attributedText = NSAttributedString(string: "20.000", attributes: [
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
-            NSAttributedString.Key.foregroundColor: UIColor.black
-            ])
-        
-        chocoCountryTextNode.attributedText = NSAttributedString(string: "Belgium", attributes: [
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
-            NSAttributedString.Key.foregroundColor: UIColor.black.withAlphaComponent(0.7)
-            ])
-        
-        chocoImagetextNode.attributedText = NSAttributedString(string: "🍫", attributes: [
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
-            ])
+
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -62,5 +43,26 @@ class ChocoViewCell: ASCellNode {
         chocoNodeVerticalWrapper.children = [chocoNodeInsetWrapper, chocoCellNodeSeparator]
         
         return chocoNodeVerticalWrapper
+    }
+    
+    internal func setChocolate(choco: Chocolate) {
+        chocoNameTextNode.attributedText = NSAttributedString(string: choco.name, attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+            ])
+        
+        chocoPriceTextNode.attributedText = NSAttributedString(string: choco.price, attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+            ])
+        
+        chocoCountryTextNode.attributedText = NSAttributedString(string: choco.country, attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
+            NSAttributedString.Key.foregroundColor: UIColor.black.withAlphaComponent(0.7)
+            ])
+        
+        chocoImagetextNode.attributedText = NSAttributedString(string: "🍫", attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
+            ])
     }
 }
