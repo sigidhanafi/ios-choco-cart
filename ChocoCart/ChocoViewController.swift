@@ -26,7 +26,7 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         chocoList.append(Chocolate(name: "Belgian Choco - Milk", country: "Belgium", price: "130.000"))
         chocoList.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
         
-        cart.chocolates.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
+//        cart.chocolates.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
         
         super.init(node: node)
     }
