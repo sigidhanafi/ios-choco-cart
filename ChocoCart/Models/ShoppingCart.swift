@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 class ShoppingCart {
     static let sharedCart = ShoppingCart()
     
-    var chocolates = [Chocolate]()
+    let chocolates: Variable<[Chocolate]> = Variable([])
 }

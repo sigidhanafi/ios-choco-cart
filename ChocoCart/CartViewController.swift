@@ -35,7 +35,7 @@ class CartViewController: ASViewController<ASDisplayNode> {
         navigationController?.navigationBar.isTranslucent = false
         title = "Choco Cart"
         
-        print(cart.chocolates.count)
+        print(cart.chocolates.value.count)
         
         generateView()
         
@@ -60,7 +60,7 @@ class CartViewController: ASViewController<ASDisplayNode> {
         }
         
         cartListTableNode.view.separatorStyle = .none
-        if shoppingCart.chocolates.count <= 0 {
+        if shoppingCart.chocolates.value.count <= 0 {
             cartListTableNode.view.backgroundView = emptyCart.view
         }
         
@@ -109,7 +109,7 @@ class CartViewController: ASViewController<ASDisplayNode> {
     }
     
     @objc func resetShoppingCart() {
-        cart.chocolates = []
+        cart.chocolates.value = []
         cartListTableNode.view.backgroundView = emptyCart.view
         cartListTableNode.reloadData()
     }
@@ -122,11 +122,11 @@ extension CartViewController: ASTableDelegate, ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return shoppingCart.chocolates.count
+        return shoppingCart.chocolates.value.count
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        let chocolate = shoppingCart.chocolates[indexPath.row]
+        let chocolate = shoppingCart.chocolates.value[indexPath.row]
         return {
             let cell = ChocoViewCell()
             cell.setChocolate(choco: chocolate)

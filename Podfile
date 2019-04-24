@@ -5,5 +5,7 @@ target 'ChocoCart' do
   
   # Pods for ChocoCart
   pod 'Texture', '>= 2.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end

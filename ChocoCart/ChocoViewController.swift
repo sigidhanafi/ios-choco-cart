@@ -7,6 +7,7 @@
 //
 
 import AsyncDisplayKit
+import RxSwift
 
 class ChocoViewController: ASViewController<ASDisplayNode> {
     
@@ -15,6 +16,7 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
     
     private var chocoList = [Chocolate]()
     private let cart = ShoppingCart.sharedCart
+    private let disposeBag = DisposeBag()
     
     init() {
         let node = ASDisplayNode()
@@ -26,7 +28,7 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         chocoList.append(Chocolate(name: "Belgian Choco - Milk", country: "Belgium", price: "130.000"))
         chocoList.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
         
-//        cart.chocolates.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
+        cart.chocolates.value.append(Chocolate(name: "Belgian Choco - Dark & Milk", country: "Belgium", price: "150.000"))
         
         super.init(node: node)
     }
@@ -50,14 +52,13 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         navigationItem.rightBarButtonItem = rightButtonItem
         
         generateView()
-        updateCartCount()
+        
+        cart.chocolates.asObservable().subscribe(onNext: { chocolates in
+            self.rightButtonItem.title = "Cart (\(chocolates.count))"
+        }).disposed(by: disposeBag)
         
         chochoTableView.delegate = self
         chochoTableView.dataSource = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        updateCartCount()
     }
 
     func generateView() {
@@ -68,14 +69,9 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
         }
         
     }
-    
-    func updateCartCount() {
-        rightButtonItem.title = "Cart (\(cart.chocolates.count))"
-    }
-    
+
     func addToCart(chocolate: Chocolate) {
-        cart.chocolates.append(chocolate)
-        updateCartCount()
+        cart.chocolates.value.append(chocolate)
     }
     
     @objc func openCartViewController() {
