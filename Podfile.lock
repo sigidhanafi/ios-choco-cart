@@ -1,41 +1,41 @@
 PODS:
-  - PINCache (3.0.1-beta.6):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
-    - PINCache/Core (= 3.0.1-beta.6)
-  - PINCache/Arc-exception-safe (3.0.1-beta.6):
+  - PINCache (3.0.3):
+    - PINCache/Arc-exception-safe (= 3.0.3)
+    - PINCache/Core (= 3.0.3)
+  - PINCache/Arc-exception-safe (3.0.3):
     - PINCache/Core
-  - PINCache/Core (3.0.1-beta.6):
-    - PINOperation (~> 1.1.0)
-  - PINOperation (1.1.1)
-  - PINRemoteImage/Core (3.0.0-beta.13):
+  - PINCache/Core (3.0.3):
+    - PINOperation (~> 1.2.1)
+  - PINOperation (1.2.1)
+  - PINRemoteImage/Core (3.0.3):
     - PINOperation
-  - PINRemoteImage/iOS (3.0.0-beta.13):
+  - PINRemoteImage/iOS (3.0.3):
     - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.13):
-    - PINCache (= 3.0.1-beta.6)
+  - PINRemoteImage/PINCache (3.0.3):
+    - PINCache (~> 3.0.3)
     - PINRemoteImage/Core
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
-  - Texture (2.8):
-    - Texture/AssetsLibrary (= 2.8)
-    - Texture/Core (= 2.8)
-    - Texture/MapKit (= 2.8)
-    - Texture/Photos (= 2.8)
-    - Texture/PINRemoteImage (= 2.8)
-    - Texture/Video (= 2.8)
-  - Texture/AssetsLibrary (2.8):
+  - Texture (3.1.0):
+    - Texture/AssetsLibrary (= 3.1.0)
+    - Texture/Core (= 3.1.0)
+    - Texture/MapKit (= 3.1.0)
+    - Texture/Photos (= 3.1.0)
+    - Texture/PINRemoteImage (= 3.1.0)
+    - Texture/Video (= 3.1.0)
+  - Texture/AssetsLibrary (3.1.0):
     - Texture/Core
-  - Texture/Core (2.8)
-  - Texture/MapKit (2.8):
+  - Texture/Core (3.1.0)
+  - Texture/MapKit (3.1.0):
     - Texture/Core
-  - Texture/Photos (2.8):
+  - Texture/Photos (3.1.0):
     - Texture/Core
-  - Texture/PINRemoteImage (2.8):
-    - PINRemoteImage/iOS (= 3.0.0-beta.13)
+  - Texture/PINRemoteImage (3.1.0):
+    - PINRemoteImage/iOS (~> 3.0.0)
     - PINRemoteImage/PINCache
     - Texture/Core
-  - Texture/Video (2.8):
+  - Texture/Video (3.1.0):
     - Texture/Core
 
 DEPENDENCIES:
@@ -44,7 +44,7 @@ DEPENDENCIES:
   - Texture (>= 2.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - PINCache
     - PINOperation
     - PINRemoteImage
@@ -53,13 +53,13 @@ SPEC REPOS:
     - Texture
 
 SPEC CHECKSUMS:
-  PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
-  PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
-  PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
+  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
+  PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
+  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  Texture: fc6e0157201f3a6e503d364c147b1872e365cef4
+  Texture: 2e8ab2519452515f7f5a520f5a8f7e0a413abfa3
 
 PODFILE CHECKSUM: 847dfeb8e029c2b160ef9397ea18ac67e75101ca
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.11.2

@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 import RxSwift
 
-class ChocoViewController: ASViewController<ASDisplayNode> {
+class ChocoViewController: ASDKViewController<ASDisplayNode> {
     
     private let chochoTableView = ASTableNode()
     private var rightButtonItem = UIBarButtonItem()
@@ -18,7 +18,7 @@ class ChocoViewController: ASViewController<ASDisplayNode> {
     private let cart = ShoppingCart.sharedCart
     private let disposeBag = DisposeBag()
     
-    init() {
+    override init() {
         let node = ASDisplayNode()
         node.backgroundColor = .white
         node.automaticallyManagesSubnodes = true

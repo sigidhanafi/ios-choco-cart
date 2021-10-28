@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-class CartViewController: ASViewController<ASDisplayNode> {
+class CartViewController: ASDKViewController<ASDisplayNode> {
     
     private let cartListTableNode = ASTableNode()
     private let checkoutButtonNode = ASButtonNode()
@@ -18,7 +18,7 @@ class CartViewController: ASViewController<ASDisplayNode> {
     
     private let cart = ShoppingCart.sharedCart
     
-    init() {
+    override init() {
         let node = ASDisplayNode()
         node.automaticallyManagesSubnodes = true
         super.init(node: node)
